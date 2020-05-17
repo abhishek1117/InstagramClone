@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.SaveCallback;
@@ -22,7 +21,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnsave,btngetalldata;
+    private Button btnsave,btngetalldata, btntransition;
     private EditText edtname,edtps,edtpp,edtkp,edtks;
     private TextView txtgetdata;
     private String allkickboxers;
@@ -32,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btntransition = findViewById(R.id.btnnextactivity);
         btnsave = findViewById(R.id.btnsave);
         btnsave.setOnClickListener(MainActivity.this);
         edtname = findViewById(R.id.edtname);
@@ -60,7 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
 
                 allkickboxers = "";
-                ParseQuery<ParseObject> queryall = ParseQuery.getQuery("Kickboxer");
+                ParseQuery queryall = ParseQuery.getQuery("Kickboxer");
+
+                queryall.whereGreaterThanOrEqualTo("Punchpower", 2500);
+                queryall.setLimit(1);
+
                 queryall.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
@@ -81,6 +85,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
             }
         });
+        btntransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
@@ -88,10 +98,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         final ParseObject kickboxer = new ParseObject("Kickboxer");
         kickboxer.put("Name", edtname.getText().toString());
-        kickboxer.put("Punchspeed", edtps.getText().toString());
-        kickboxer.put("Punchpower", edtpp.getText().toString());
-        kickboxer.put("Kickspeed", edtks.getText().toString());
-        kickboxer.put("Kickpower", edtkp.getText().toString());
+        kickboxer.put("Punchspeed", Integer.parseInt(edtps.getText().toString()));
+        kickboxer.put("Punchpower", Integer.parseInt(edtpp.getText().toString()));
+        kickboxer.put("Kickspeed", Integer.parseInt(edtks.getText().toString()));
+        kickboxer.put("Kickpower", Integer.parseInt(edtkp.getText().toString()));
         kickboxer.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
