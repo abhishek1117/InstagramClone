@@ -60,13 +60,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
         android:layout_marginLeft="176dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="177dp"
         android:layout_marginRight="177dp"
         android:background="#8CF6BE"
         android:hint="kickspeed"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtpp" />
 
@@ -76,13 +77,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="177dp"
         android:layout_marginLeft="177dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="176dp"
         android:layout_marginRight="176dp"
         android:background="#8CF6BE"
         android:hint="kickpower"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtks" />
 
@@ -92,12 +94,44 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="165dp"
         android:layout_marginLeft="165dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="159dp"
         android:layout_marginRight="159dp"
         android:text="Save to Server"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtkp" />
+
+    <TextView
+        android:id="@+id/txtgetdata"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:text="Get data from server"
+        android:textColor="#EF0909"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnsave" />
+
+    <Button
+        android:id="@+id/btngetalldata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginRight="159dp"
+        android:text="Get all Kickboxers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtgetdata" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
