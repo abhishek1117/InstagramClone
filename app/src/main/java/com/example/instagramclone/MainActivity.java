@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnlogin.setOnClickListener(this);
         btnsignup.setOnClickListener(this);
         if(ParseUser.getCurrentUser()!=null) {
-            ParseUser.getCurrentUser().logOut();
+            //ParseUser.getCurrentUser().logOut();
+            transitiontosocialmediaactivity();
         }
     }
 
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         ||edtpassword.getText().toString().equals("")){
                     FancyToast.makeText(MainActivity.this, "All the fields need to be filled",
                             Toast.LENGTH_LONG, FancyToast.INFO, true).show();
+
                 }
                 else {
                     final ParseUser appuser = new ParseUser();
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             if (e == null) {
                                 FancyToast.makeText(MainActivity.this, appuser.getUsername() + " is signed up!",
                                         Toast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                transitiontosocialmediaactivity();
                             } else {
                                 FancyToast.makeText(MainActivity.this, "There was an error" + e.getMessage(),
                                         Toast.LENGTH_LONG, FancyToast.ERROR, true).show();
@@ -115,6 +118,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
 
         }
+    }
+    private void transitiontosocialmediaactivity(){
+
+        Intent intent = new Intent(MainActivity.this, SocialMedia.class);
+        startActivity(intent);
     }
 }
 
