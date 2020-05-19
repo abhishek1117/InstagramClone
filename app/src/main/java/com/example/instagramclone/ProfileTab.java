@@ -48,11 +48,11 @@ public class ProfileTab extends Fragment {
 
         final ParseUser parseUser = ParseUser.getCurrentUser();
 
-        edtprofilename.setText("Name: "+parseUser.get("ProfileName")+"");
-        edtprofilebio.setText("Bio: "+parseUser.get("ProfileBio")+"");
-        edtprofileprofession.setText("Profession: "+parseUser.get("ProfileProfession")+"");
-        edtprofilehobbies.setText("Hobbies: "+parseUser.get("profileHobbies")+"");
-        edtprofilemovie.setText("Favourite Movie: "+parseUser.get("ProfileFavouriteMovie")+"");
+        edtprofilename.setText(parseUser.get("ProfileName")+"");
+        edtprofilebio.setText(parseUser.get("ProfileBio")+"");
+        edtprofileprofession.setText(parseUser.get("ProfileProfession")+"");
+        edtprofilehobbies.setText(parseUser.get("profileHobbies")+"");
+        edtprofilemovie.setText(parseUser.get("ProfileFavouriteMovie")+"");
 
         btnupdateinfo.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
